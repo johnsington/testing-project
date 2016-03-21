@@ -7,12 +7,13 @@ import com.sun.deploy.util.StringUtils;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class Parser {
     private String filename;
-    private ArrayList<String> functionNames = new ArrayList<String>();
-    private HashMap<String, Node> functionNodes = new HashMap<String, Node>();
+    private NodeCollection callSites = new NodeCollection();
+    private NodeCollection functionNodes = new NodeCollection();
 
     Parser(String filename_) {
         filename = filename_;
@@ -33,8 +34,9 @@ public class Parser {
                 //new function occurs
                 if(line.contains("Call graph node for function")){
                     String[] split = line.split(" "); //alt \\s+
-                    String functionName = split[5].substring(1, split[5].length()-2); //to get rid of single quotes
-                    functionNames.add(functionName);
+                    String functionName = split[5].substring(1, split[5].length()-13); //to get rid of single quotes
+                    callSites.add(new Node(functionName, true));
+                    readNewFunction(functionName, br);
                 }
             }
             //Close the input stream
@@ -49,35 +51,28 @@ public class Parser {
     }
 
     private void readNewFunction(String fName, BufferedReader br){
-        String line;
         HashMap<String, Integer> names = new HashMap<String, Integer>();
+
         try {
-            while ((line = br.readLine()) != null) {
+            String line = br.readLine();
+
+            while (line != null || line.equals("and\n")){
+                String[] split = line.split(" ");
                 //it is a function definition, we want to make a new node
-                if(line.contains("function")) {
-                    String[] split = line.split(" "); //alt \\s+
+                if(split[2].equals("function")) {
                     String name = split[3].substring(1, split[5].length() - 2);
 
                     //we only want unique function calls per function
-                    if (names.get(name) == null) {
-                        //check to see if node has already occurred
-                        Node n = functionNodes.get(name);
-                        //we need to create a new node
-                        if (n == null) {
-                            n = new Node(name);
-                            n.increment();
-                        } else {
-                            n.increment();
-                        }
-                        //update function map with node/new node value
-                        functionNodes.put(name, n);
-                        names.put(name, 0);
+                    functionNodes.add(new Node(name));
+
+                    if (!callSites.getNode(fName).childNodes.containsKey(name)){
+                        //register fn to call site and increment support
+                        Node n = functionNodes.getNode(name);
+                        callSites.getNode(fName).addChild(n);
+                        n.increment();
                     }
                 }
-                //and marks end of a function
-                if(line.contains("and")){
-                    return;
-                }
+                line = br.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
