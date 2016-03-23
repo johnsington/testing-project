@@ -7,6 +7,7 @@ import com.sun.deploy.util.StringUtils;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Objects;
 
 
@@ -34,7 +35,8 @@ public class Parser {
                 //new function occurs
                 if(line.contains("Call graph node for function")){
                     String[] split = line.split(" "); //alt \\s+
-                    String functionName = split[5].substring(1, split[5].length()-13); //to get rid of single quotes
+                    String functionName = split[5].substring(1, split[5].length()-14); //to get rid of single quotes
+                    System
                     callSites.add(new Node(functionName, true));
                     readNewFunction(functionName, br);
                 }
@@ -48,6 +50,22 @@ public class Parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        finally{
+            System.out.println("functionNodes:");
+            for (Node n : functionNodes._nodes.values()){
+                System.out.println("  "+ n.getName() + " support: " + n.getSupport());
+            }
+
+            System.out.println("callSites: ");
+            for (Node n : callSites._nodes.values()){
+                System.out.println("  "+ n.getName());
+                System.out.println("  children:");
+                for( Node j : n.childNodes.values()){
+                    System.out.println("    - "+ j.getName());
+                }
+            }
+
+        }
     }
 
     private void readNewFunction(String fName, BufferedReader br){
@@ -56,11 +74,22 @@ public class Parser {
         try {
             String line = br.readLine();
 
-            while (line != null || line.equals("and\n")){
+            while (line != null){
+
                 String[] split = line.split(" ");
+                System.out.println(line);
+
+                if (split.length < 6){
+                    return;
+                }
+
+                for(String i : split){
+                    System.out.println("+ " + i);
+                }
+
                 //it is a function definition, we want to make a new node
-                if(split[2].equals("function")) {
-                    String name = split[3].substring(1, split[5].length() - 2);
+                if(split[4].equals("function")) {
+                    String name = split[5].substring(1, split[5].length() - 2);
 
                     //we only want unique function calls per function
                     functionNodes.add(new Node(name));
