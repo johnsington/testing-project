@@ -7,19 +7,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.Stack;
 
 
 public class Parser {
     private String filename;
     private NodeCollection callSites = new NodeCollection();
     private NodeCollection functionNodes = new NodeCollection();
+    private ArrayList<PiPairs> pairs = new ArrayList<PiPairs>();
 
     Parser(String filename_) {
         filename = filename_;
     }
 
     public void readFile() {
-        try {
+        System.out.println("parsing");
+    	try {
             // Open the file that is the first
             // command line parameter
         	FileInputStream fstream = new FileInputStream(filename);
@@ -63,6 +66,7 @@ public class Parser {
             }
 
         }
+        computePairConfidence();
     }
 
     private void readNewFunction(String fName, BufferedReader br){
@@ -103,7 +107,49 @@ public class Parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
+    
+    private void computePairConfidence(){
+    	//iterate through the children of each callsite and increment their pipair count
+    	
+    	for (Node curr : callSites._nodes.values()){
+    		//need to iterate through all of currs children
+    		HashMap<Integer, Node> children = curr.childNodes;
+    		HashMap<Node, Integer> processed = new HashMap<Node,Integer>();
+    		for(Node currChild: children.values()){
+    			//iterate through all of the children again, this time making pipairs
+    			for(Node pair: children.values()){
+    				if(pair==currChild)
+    					continue;
+    				if(processed.containsKey(pair))
+    					continue;
+    				
+    				
+    				PiPairs nPair = new PiPairs(currChild.id, pair.id);
+    				//check to see if this pair is already contained if it is then we just increment
+    				//else we add
+    				boolean found = false;
+    				for(int i=0; i<pairs.size(); i++){
+    					if(pairs.get(i).equals(nPair)){
+    						//contained so increment confidence
+    						pairs.get(i).add();
+    						found=true;
+    						break;
+    					}
+    				}
+    				if(!found){
+    					pairs.add(nPair);
+    				}
+    			}
+    			processed.put(currChild, currChild.id);
+    		}
+    	}
+    	
+    	
+    	for(int i=0; i<pairs.size(); i++){
+    		PiPairs curr = pairs.get(i);
+    		System.out.println("id1 "+curr.id1 + " id2 "+ curr.id2 + " confidence " + curr.confidence);
+    	}
+    }
+    
 }
