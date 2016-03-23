@@ -9,17 +9,18 @@ then
 	
 	if [ $# -eq 3 ] 
 	then
-		echo "three params"
 		support=$2
-    		conf=$3
+    	conf=$3
 		#java Main bitcode support conf
+		java -cp out Main "$bitcode" "$support" "$conf"
 		exit 1
 	fi
 	
 	if [ $# -eq 1 ]
 	then
-		echo "one param"
-		#java Main bitcode 
+		#java Main bitcode
+		java -cp out Main "$bitcode"
+		exit 1
 	else
 		echo "Incorrect Parameters"
 	fi
