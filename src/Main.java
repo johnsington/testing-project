@@ -3,7 +3,7 @@
  */
 public class Main {
 
-    public static void main(String args[]){
+    public static void main(final String args[]){
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 Parser parser = new Parser(args[0]);

@@ -1,0 +1,26 @@
+#!/bin/bash
+#$1 is bitcode file $2 is support $3 if confidence
+#check to see if there are three or one arguments
+if [ $# -ge 1 ]
+then
+	bitcode=$1
+	echo "set bit code"
+	#compile bitcode to graph file
+	
+	if [ $# -eq 3 ] 
+	then
+		echo "three params"
+		support=$2
+    		conf=$3
+		#java Main bitcode support conf
+		exit 1
+	fi
+	
+	if [ $# -eq 1 ]
+	then
+		echo "one param"
+		#java Main bitcode 
+	else
+		echo "Incorrect Parameters"
+	fi
+fi
