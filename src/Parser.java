@@ -36,8 +36,8 @@ public class Parser {
                 if(line.contains("Call graph node for function")){
                     String[] split = line.split(" "); //alt \\s+
                     String functionName = split[5].substring(1, split[5].length()-14); //to get rid of single quotes
-                    System
-                    callSites.add(new Node(functionName, true));
+                    System.out.println("functionName: " + functionName);
+                    callSites.addCallSite(functionName);
                     readNewFunction(functionName, br);
                 }
             }
@@ -56,12 +56,12 @@ public class Parser {
                 System.out.println("  "+ n.getName() + " support: " + n.getSupport());
             }
 
-            System.out.println("callSites: ");
+            System.out.println("callSites (id): ");
             for (Node n : callSites._nodes.values()){
                 System.out.println("  "+ n.getName());
                 System.out.println("  children:");
-                for( Node j : n.childNodes.values()){
-                    System.out.println("    - "+ j.getName());
+                for( int j : n.childNodes.keySet()){
+                    System.out.println("    - "+ j);
                 }
             }
 
@@ -89,12 +89,12 @@ public class Parser {
 
                 //it is a function definition, we want to make a new node
                 if(split[4].equals("function")) {
-                    String name = split[5].substring(1, split[5].length() - 2);
+                    String name = split[5].substring(1, split[5].length() - 1);
 
                     //we only want unique function calls per function
-                    functionNodes.add(new Node(name));
+                    functionNodes.add(name);
 
-                    if (!callSites.getNode(fName).childNodes.containsKey(name)){
+                    if (!callSites.getNode(fName).childNodes.containsKey(Node.map.get(name))){
                         //register fn to call site and increment support
                         Node n = functionNodes.getNode(name);
                         callSites.getNode(fName).addChild(n);

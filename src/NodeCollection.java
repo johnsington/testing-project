@@ -10,9 +10,15 @@ public class NodeCollection {
         this._nodes = new HashMap<>();
     }
 
-    public void add(Node n){
-        if(!this._nodes.containsKey(n.toString())){
-            this._nodes.put(n.toString(), n);
+    public void add(String n){
+        if(!this._nodes.containsKey(n)){
+            this._nodes.put(n, new Node(n));
+        }
+    }
+
+    public void addCallSite(String n){
+        if(!this._nodes.containsKey(n)){
+            this._nodes.put(n, new Node(n, true));
         }
     }
 
