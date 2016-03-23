@@ -14,8 +14,17 @@ public class Parser {
     private NodeCollection callSites = new NodeCollection();
     private NodeCollection functionNodes = new NodeCollection();
 
-    Parser(String filename_) {
-        filename = filename_;
+    public int t_support = 3;
+    public double t_confidence = 0.8;
+
+    public Parser(String filename_) {
+        this.filename = filename_;
+    }
+
+    public Parser(String filename_, int T_SUPPORT, int T_CONFIDENCE){
+        this(filename_);
+        this.t_support = T_SUPPORT;
+        this.t_confidence = T_CONFIDENCE / 100;
     }
 
     public void readFile() {
@@ -41,6 +50,8 @@ public class Parser {
             }
             //Close the input stream
             in.close();
+
+
 
 
         } catch (FileNotFoundException e) {
