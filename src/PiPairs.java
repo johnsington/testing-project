@@ -3,17 +3,21 @@ import java.util.HashMap;
 
 public class PiPairs {
 	Node n1, n2;
-	int confidence; 
+	int support; 
 	
 	public PiPairs(Node n1_, Node n2_){
-		confidence=1;
+		support=1;
 		n1=n1_;
 		n2=n2_;
 	}
 	
 	
 	public void add(){
-		confidence++;
+		support++;
+	}
+	
+	public int getSupport(){
+		return support;
 	}
 	
 	public boolean equals(PiPairs o){
