@@ -134,7 +134,7 @@ public class Parser {
     					continue;
     				
     				
-    				PiPairs nPair = new PiPairs(currChild.id, pair.id);
+    				PiPairs nPair = new PiPairs(currChild, pair);
     				//check to see if this pair is already contained if it is then we just increment
     				//else we add
     				boolean found = false;
@@ -157,7 +157,7 @@ public class Parser {
     	
     	for(int i=0; i<pairs.size(); i++){
     		PiPairs curr = pairs.get(i);
-    		System.out.println("id1 "+curr.id1 + " id2 "+ curr.id2 + " confidence " + curr.confidence);
+    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " confidence " + curr.confidence);
     	}
     }
     
