@@ -160,7 +160,7 @@ public class Parser {
     	
     	for(int i=0; i<pairs.size(); i++){
     		PiPairs curr = pairs.get(i);
-    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " confidence " + curr.confidence);
+    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " support " + curr.support);
     	}
     }
     
