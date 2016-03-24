@@ -14,10 +14,12 @@ public class Parser {
     private String filename;
     private NodeCollection callSites = new NodeCollection();
     private NodeCollection functionNodes = new NodeCollection();
-    private ArrayList<PiPairs> pairs = new ArrayList<PiPairs>();
+    private ArrayList<PiPairs> pairs = new ArrayList<>();
+
+    private ArrayList<PiPairs> bugPairs = new ArrayList<>();
 
     public int t_support = 3;
-    public double t_confidence = 0.8;
+    public double t_confidence = 0.65;
 
     public Parser(String filename_) {
         this.filename = filename_;
@@ -30,7 +32,6 @@ public class Parser {
     }
 
     public void readFile() {
-        System.out.println("parsing");
     	try {
             // Open the file that is the first
             // command line parameter
@@ -46,7 +47,6 @@ public class Parser {
                 if(line.contains("Call graph node for function")){
                     String[] split = line.split(" "); //alt \\s+
                     String functionName = split[5].substring(1, split[5].length()-14); //to get rid of single quotes
-                    System.out.println("functionName: " + functionName);
                     callSites.addCallSite(functionName);
                     readNewFunction(functionName, br);
                 }
@@ -82,7 +82,6 @@ public class Parser {
     }
 
     private void readNewFunction(String fName, BufferedReader br){
-        HashMap<String, Integer> names = new HashMap<String, Integer>();
 
         try {
             String line = br.readLine();
@@ -156,12 +155,45 @@ public class Parser {
     			processed.put(currChild, currChild.id);
     		}
     	}
-    	
-    	
+
+        for(PiPairs p : pairs){
+            if (p.getSupport() >= t_support){
+                float n1_confidence = p.getSupport() / p.n1.getSupport();
+                float n2_confidence = p.getSupport() / p.n2.getSupport();
+
+                if(n1_confidence >= t_confidence){
+                    p.setBug(p.n1, n1_confidence);
+                }
+                if(n2_confidence >= t_confidence){
+                    p.setBug(p.n2, n2_confidence);
+                }
+
+                if(p.n1_is_bug || p.n2_is_bug){
+                    for(Node callSite : callSites._nodes.values()){
+                        if(p.n1_is_bug){
+                            if(callSite.childNodes.containsKey(p.n1.id) && !callSite.childNodes.containsKey(p.n2.id)){
+                                reportBug(p, callSite, p.n1);
+                            }
+                        }
+                        if(p.n2_is_bug){
+                            if(callSite.childNodes.containsKey(p.n2.id) && !callSite.childNodes.containsKey(p.n1.id)){
+                                reportBug(p, callSite, p.n2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     	for(int i=0; i<pairs.size(); i++){
     		PiPairs curr = pairs.get(i);
-    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " support " + curr.support);
+    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " confidence " + curr.getSupport());
     	}
+    }
+
+    void reportBug(PiPairs p, Node callSite, Node n){
+        System.out.println("bug: " + n.getName() + " in " + callSite.getName() + ", pair: (" +p.n1.getName()
+                + ", " + p.n2.getName()+"), support: " + p.getSupport() + ", confidence: " + p.getConfidence(n)*100 + "%");
     }
     
 }
