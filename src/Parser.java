@@ -64,19 +64,19 @@ public class Parser {
             e.printStackTrace();
         }
         finally{
-            System.out.println("functionNodes:");
-            for (Node n : functionNodes._nodes.values()){
-                System.out.println("  "+ n.getName() + " support: " + n.getSupport());
-            }
-
-            System.out.println("callSites (id): ");
-            for (Node n : callSites._nodes.values()){
-                System.out.println("  "+ n.getName());
-                System.out.println("  children:");
-                for( int j : n.childNodes.keySet()){
-                    System.out.println("    - "+ j);
-                }
-            }
+//            System.out.println("functionNodes:");
+//            for (Node n : functionNodes._nodes.values()){
+//                System.out.println("  "+ n.getName() + " support: " + n.getSupport());
+//            }
+//
+//            System.out.println("callSites (id): ");
+//            for (Node n : callSites._nodes.values()){
+//                System.out.println("  "+ n.getName());
+//                System.out.println("  children:");
+//                for( int j : n.childNodes.keySet()){
+//                    System.out.println("    - "+ j);
+//                }
+//            }
 
         }
         computePairConfidence();
@@ -90,15 +90,15 @@ public class Parser {
             while (line != null){
 
                 String[] split = line.split(" ");
-                System.out.println(line);
+//                System.out.println(line);
 
                 if (split.length < 6){
                     return;
                 }
 
-                for(String i : split){
-                    System.out.println("+ " + i);
-                }
+//                for(String i : split){
+//                    System.out.println("+ " + i);
+//                }
 
                 //it is a function definition, we want to make a new node
                 if(split[4].equals("function")) {
@@ -186,10 +186,10 @@ public class Parser {
             }
         }
 
-    	for(int i=0; i<pairs.size(); i++){
-    		PiPairs curr = pairs.get(i);
-    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " confidence " + curr.getSupport());
-    	}
+//    	for(int i=0; i<pairs.size(); i++){
+//    		PiPairs curr = pairs.get(i);
+//    		System.out.println("id1 "+curr.n1.getName() + " id2 "+ curr.n2.getName() + " confidence " + curr.getSupport());
+//    	}
     }
 
     void reportBug(PiPairs p, Node callSite, Node n){
