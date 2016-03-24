@@ -193,7 +193,7 @@ public class Parser {
     }
 
     void reportBug(PiPairs p, Node callSite, Node n){
-    	System.out.println(String.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%", n.getName(),callSite.getName(), p.n1.getName(),p.n2.getName(),p.getSupport(), p.getConfidence(n)*100));
+    	System.out.println(String.format("bug: %s in %s pair: (%s, %s) support: %d confidence: %.2f%%", n.getName(),callSite.getName(), p.n1.getName(),p.n2.getName(),p.getSupport(), p.getConfidence(n)*100));
     }
     
 }
