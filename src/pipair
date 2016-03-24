@@ -5,7 +5,7 @@ if [ $# -ge 1 ]
 then
 	bitcode=$1
 	file="cg.txt"
-	# opt -print-callgraph "$bitcode" 2>&1 >/dev/null | tee "$file"
+	 opt -print-callgraph "$bitcode" 2>&1 >/dev/null | tee "$file"
 	#compile bitcode to graph file
 	
 	if [ $# -eq 3 ] 
@@ -13,7 +13,7 @@ then
 		support=$2
     	conf=$3
 		#java Main bitcode support conf
-		java -cp out Main "$bitcode" "$support" "$conf"
+		java -cp out Main "$file" "$support" "$conf"
 		rm cg.txt
 		exit 1
 	fi
@@ -21,7 +21,7 @@ then
 	if [ $# -eq 1 ]
 	then
 		#java Main bitcode
-		java -cp out Main "$bitcode"
+		java -cp out Main "$file"
 		rm cg.txt
 		exit 1
 	else
