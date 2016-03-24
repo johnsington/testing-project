@@ -30,7 +30,6 @@ public class Parser {
     }
 
     public void readFile() {
-        System.out.println("parsing");
     	try {
             // Open the file that is the first
             // command line parameter
@@ -46,8 +45,8 @@ public class Parser {
                 if(line.contains("Call graph node for function")){
                     String[] split = line.split(" "); //alt \\s+
                     String functionName = split[5].substring(1, split[5].length()-14); //to get rid of single quotes
-                    System.out.println("functionName: " + functionName);
                     callSites.addCallSite(functionName);
+                    readNewFunction(functionName, br);
                 }
             }
             //Close the input stream
@@ -77,11 +76,10 @@ public class Parser {
             }
 
         }
-        computePairConfidence();
+//        computePairConfidence();
     }
 
     private void readNewFunction(String fName, BufferedReader br){
-        HashMap<String, Integer> names = new HashMap<String, Integer>();
 
         try {
             String line = br.readLine();

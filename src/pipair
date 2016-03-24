@@ -4,7 +4,8 @@
 if [ $# -ge 1 ]
 then
 	bitcode=$1
-	echo "set bit code"
+	file="cg.txt"
+	# opt -print-callgraph "$bitcode" 2>&1 >/dev/null | tee "$file"
 	#compile bitcode to graph file
 	
 	if [ $# -eq 3 ] 
@@ -13,6 +14,7 @@ then
     	conf=$3
 		#java Main bitcode support conf
 		java -cp out Main "$bitcode" "$support" "$conf"
+		rm cg.txt
 		exit 1
 	fi
 	
@@ -20,6 +22,7 @@ then
 	then
 		#java Main bitcode
 		java -cp out Main "$bitcode"
+		rm cg.txt
 		exit 1
 	else
 		echo "Incorrect Parameters"
