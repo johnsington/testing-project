@@ -1,13 +1,13 @@
 all: clean
 	@echo "Compiling..."
 
-	mkdir out
+	mkdir classes
 
-	javac -d out @sources
+	javac -d classes/ @sources
 
 clean:
 	@echo "Cleaning..."
-	if [ -a out ] ; \
+	if [ -a classes ] ; \
 	then \
-	     rm -rf out ; \
+	     rm -rf classes ; \
 	fi;

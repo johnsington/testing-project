@@ -15,7 +15,7 @@ then
 		#java Main bitcode support conf
 		java -cp ../classes/ Main "$file" "$support" "$conf" 2>/dev/null
 		rm $file
-		exit 1
+		exit 0
 	fi
 	
 	if [ $# -eq 1 ]
@@ -23,7 +23,7 @@ then
 		#java Main bitcode
 		java -cp ../classes/ Main "$file" 2>/dev/null
 		rm $file
-		exit 1
+		exit 0
 	else
 		echo "Incorrect Parameters"
 	fi
