@@ -3,6 +3,7 @@
  */
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -158,8 +159,8 @@ public class Parser {
 
         for(PiPairs p : pairs){
             if (p.getSupport() >= t_support){
-                float n1_confidence = p.getSupport() / p.n1.getSupport();
-                float n2_confidence = p.getSupport() / p.n2.getSupport();
+                float n1_confidence = ((float)p.getSupport() / (float)p.n1.getSupport());
+                float n2_confidence = ((float)p.getSupport() / (float)p.n2.getSupport());
 
                 if(n1_confidence >= t_confidence){
                     p.setBug(p.n1, n1_confidence);
@@ -192,8 +193,7 @@ public class Parser {
     }
 
     void reportBug(PiPairs p, Node callSite, Node n){
-        System.out.println("bug: " + n.getName() + " in " + callSite.getName() + ", pair: (" +p.n1.getName()
-                + ", " + p.n2.getName()+"), support: " + p.getSupport() + ", confidence: " + p.getConfidence(n)*100 + "%");
+    	System.out.println(String.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%", n.getName(),callSite.getName(), p.n1.getName(),p.n2.getName(),p.getSupport(), p.getConfidence(n)*100));
     }
     
 }
