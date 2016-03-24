@@ -15,6 +15,11 @@ public class PiPairs {
         n2_is_bug = false;
         n1_confidence = 0;
         n2_confidence = 0;
+
+        if (n2_.getName().compareTo(n1.getName()) < 0){
+            n1 = n2_;
+            n2 = n1_;
+        }
 	}
 	
 	public void setBug(Node n, float c){
