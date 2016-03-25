@@ -46,8 +46,8 @@ public class Parser {
                 //interpretLine(line);
                 //new function occurs
                 if(line.contains("Call graph node for function")){
-                    String[] split = line.split("'"); //alt \\s+
-                    String functionName = split[1]; //to get rid of single quotes
+                    String[] split = line.split(" "); //alt \\s+
+                    String functionName = split[5].substring(1, split[5].length()-14); //to get rid of single quotes
                     callSites.addCallSite(functionName);
                     readNewFunction(functionName, br);
                 }
@@ -89,26 +89,26 @@ public class Parser {
 
             while (line != null){
 
-                String[] split = line.split("'");
-//                System.out.println(split.length);
+                String[] split = line.split(" ");
 
-                if (split.length != 2){
+                if (split.length != 6){
                     return;
                 }
 
                 //it is a function definition, we want to make a new node
-                String name = split[1];
+                if(split[4].equals("function")) {
+                    String name = split[5].substring(1, split[5].length() - 1);
 
-                //we only want unique function calls per function
-                functionNodes.add(name);
+                    //we only want unique function calls per function
+                    functionNodes.add(name);
 
-                if (!callSites.getNode(fName).childNodes.containsKey(Node.map.get(name))){
-                    //register fn to call site and increment support
-                    Node n = functionNodes.getNode(name);
-                    callSites.getNode(fName).addChild(n);
-                    n.increment();
+                    if (!callSites.getNode(fName).childNodes.containsKey(Node.map.get(name))){
+                        //register fn to call site and increment support
+                        Node n = functionNodes.getNode(name);
+                        callSites.getNode(fName).addChild(n);
+                        n.increment();
+                    }
                 }
-
                 line = br.readLine();
             }
         } catch (IOException e) {
@@ -118,6 +118,7 @@ public class Parser {
     
     private void computePairConfidence(){
     	//iterate through the children of each callsite and increment their pipair count
+        int a = 0;
 
     	for (Node curr : callSites._nodes.values()){
     		//need to iterate through all of currs children
@@ -182,6 +183,7 @@ public class Parser {
             }
         }
 
+//        System.out.println(a + " callSites avoided");
 
 //    	for(int i=0; i<pairs.size(); i++){
 //    		PiPairs curr = pairs.get(i);
