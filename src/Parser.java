@@ -102,7 +102,7 @@ public class Parser {
                     //we only want unique function calls per function
                     functionNodes.add(name);
 
-                    if (!callSites.getNode(fName).childNodes.containsKey(Node.map.get(name))){
+                    if (!callSites.getNode(fName).childNodes.containsKey(name)){
                         //register fn to call site and increment support
                         Node n = functionNodes.getNode(name);
                         callSites.getNode(fName).addChild(n);
@@ -122,15 +122,15 @@ public class Parser {
 
     	for (Node curr : callSites._nodes.values()){
     		//need to iterate through all of currs children
-    		HashMap<Integer, Node> children = curr.childNodes;
-    		HashMap<Node, Integer> processed = new HashMap<Node,Integer>();
+    		HashMap<String, Node> children = curr.childNodes;
+    		HashMap<String, Node> processed = new HashMap<>();
     		for(Node currChild: children.values()){
     			//iterate through all of the children again, this time making pipairs
     			for(Node pair: children.values()){
     				if(pair==currChild){
     					continue;
                     }
-    				if(processed.containsKey(pair)){
+    				if(processed.containsKey(pair.getName())){
                         continue;
                     }
     				
@@ -150,7 +150,7 @@ public class Parser {
     					pairs.add(nPair);
     				}
     			}
-    			processed.put(currChild, currChild.id);
+    			processed.put(currChild.getName(), currChild);
     		}
     	}
 
@@ -169,12 +169,12 @@ public class Parser {
                 if(p.n1_is_bug || p.n2_is_bug){
                     for(Node callSite : callSites._nodes.values()){
                         if(p.n1_is_bug){
-                            if(callSite.childNodes.containsKey(p.n1.id) && !callSite.childNodes.containsKey(p.n2.id)){
+                            if(callSite.childNodes.containsKey(p.n1.getName()) && !callSite.childNodes.containsKey(p.n2.getName())){
                                 reportBug(p, callSite, p.n1);
                             }
                         }
                         if(p.n2_is_bug){
-                            if(callSite.childNodes.containsKey(p.n2.id) && !callSite.childNodes.containsKey(p.n1.id)){
+                            if(callSite.childNodes.containsKey(p.n2.getName()) && !callSite.childNodes.containsKey(p.n1.getName())){
                                 reportBug(p, callSite, p.n2);
                             }
                         }

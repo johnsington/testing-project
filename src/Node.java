@@ -7,17 +7,11 @@ import java.util.HashSet;
 public class Node {
     private String name;
     private int support;
-    public HashMap<Integer, Node> childNodes;
-    public int id;
-    static private int TOTAL_NODES = 0;
-    public static HashMap<String, Integer> map = new HashMap<>();
+    public HashMap<String, Node> childNodes;
 
     public Node(String f){
         this.name = f;
         this.support = 0;
-        this.id = TOTAL_NODES++;
-
-        this.map.put(this.name, this.id);
     }
 
     public Node(String f, Boolean isCallSite){
@@ -29,8 +23,8 @@ public class Node {
     }
 
     public void addChild(Node n){
-        if (!this.childNodes.containsKey(n.id)){
-            this.childNodes.put(n.id, n);
+        if (!this.childNodes.containsValue(n)){
+            this.childNodes.put(n.getName(), n);
         }
     }
 
@@ -52,7 +46,7 @@ public class Node {
     }
 
     public boolean equals(Node o){
-          return o!=null && o.id == this.id;
+          return o!=null && (this.equals(o));
     }
 
 }
