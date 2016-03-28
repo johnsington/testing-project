@@ -90,7 +90,7 @@ public class Parser {
             while (line != null){
 
                 String[] split = line.split(" ");
-//                System.out.println(line);
+                //System.out.println(line);
 
                 if (split.length < 6){
                     return;
@@ -100,8 +100,17 @@ public class Parser {
 //                    System.out.println("+ " + i);
 //                }
 
+              /*  String name = split[0];
+                functionNodes.add(name);
+
+                if (!callSites.getNode(fName).childNodes.containsKey(Node.map.get(name))){
+                    //register fn to call site and increment support
+                    Node n = functionNodes.getNode(name);
+                    callSites.getNode(fName).addChild(n);
+                    n.increment();
+                }*/
                 //it is a function definition, we want to make a new node
-                if(split[4].equals("function")) {
+               if(split[4].equals("function")) {
                     String name = split[5].substring(1, split[5].length() - 1);
 
                     //we only want unique function calls per function

@@ -23,7 +23,7 @@ public class PiPairs {
 	}
 	
 	public void setBug(Node n, float c){
-        if(n == n1){
+		if(n == n1){
             n1_is_bug = true;
             n1_confidence = c;
         }
