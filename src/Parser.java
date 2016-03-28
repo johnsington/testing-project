@@ -36,25 +36,21 @@ public class Parser {
     	try {
             // Open the file that is the first
             // command line parameter
-        	FileInputStream fstream = new FileInputStream(filename);
-            // Get the object of DataInputStream
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            FileReader fstream = new FileReader(filename);
+            BufferedReader br = new BufferedReader(fstream);
             String line;
             //Read File Line By Line
             while ((line = br.readLine()) != null) {
                 //interpretLine(line);
                 //new function occurs
                 if(line.contains("Call graph node for function")){
-                    String[] split = line.split(" "); //alt \\s+
-                    String functionName = split[5].substring(1, split[5].length()-14); //to get rid of single quotes
+		    int start = line.indexOf("\'")+1;
+		    int end   = line.indexOf("\'", start);
+                    String functionName = line.substring(start,end);
                     callSites.addCallSite(functionName);
                     readNewFunction(functionName, br);
                 }
             }
-            //Close the input stream
-            in.close();
-
 
 
 
@@ -97,7 +93,9 @@ public class Parser {
 
                 //it is a function definition, we want to make a new node
                 if(split[4].equals("function")) {
-                    String name = split[5].substring(1, split[5].length() - 1);
+                    int start = line.indexOf("\'")+1;
+                    int end   = line.indexOf("\'", start);
+                    String name = line.substring(start,end);
 
                     //we only want unique function calls per function
                     functionNodes.add(name);
