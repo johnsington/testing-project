@@ -17,8 +17,6 @@ public class Main {
                     }
                     parser.readFile();
                 }
-                parser = new Parser("test");
-                parser.readFile();
             }
         });
     }
