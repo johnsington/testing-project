@@ -10,7 +10,7 @@ public class Main {
                 if (args.length > 0){
 
                     if(args.length == 3){
-                        parser = new Parser(args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+                        parser = new Parser(args[0], Integer.parseInt(args[1]), Double.parseDouble(args[2]));
                     }
                     else{
                         parser = new Parser(args[0]);
