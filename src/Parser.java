@@ -26,7 +26,7 @@ public class Parser {
         this.filename = filename_;
     }
 
-    public Parser(String filename_, int T_SUPPORT, int T_CONFIDENCE){
+    public Parser(String filename_, int T_SUPPORT, double T_CONFIDENCE){
         this(filename_);
         this.t_support = T_SUPPORT;
         this.t_confidence = T_CONFIDENCE / 100;

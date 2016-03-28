@@ -46,7 +46,7 @@ public class Node {
     }
 
     public boolean equals(Node o){
-          return o!=null && (this.equals(o));
+          return o!=null && (this.getName().equals(o.getName()));
     }
 
 }
