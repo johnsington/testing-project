@@ -21,9 +21,15 @@ public class Parser {
 
     public int t_support = 3;
     public double t_confidence = 0.65;
+    public int t_depth = 1;
 
     public Parser(String filename_) {
         this.filename = filename_;
+    }
+    
+    public Parser(String filename_, int t_depth) {
+        this.filename = filename_;
+        this.t_depth=t_depth;
     }
 
     public Parser(String filename_, int T_SUPPORT, double T_CONFIDENCE){
@@ -32,6 +38,13 @@ public class Parser {
         this.t_confidence = T_CONFIDENCE / 100;
     }
 
+    public Parser(String filename_, int T_SUPPORT, double T_CONFIDENCE, int t_depth){
+        this(filename_);
+        this.t_support = T_SUPPORT;
+        this.t_confidence = T_CONFIDENCE / 100;
+        this.t_depth=t_depth;
+    }
+    
     public void readFile() {
     	try {
             // Open the file that is the first
@@ -75,6 +88,8 @@ public class Parser {
 //            }
 
         }
+    	//interProceduralAnalysis();
+    	analysis();
         computePairConfidence();
     }
 
@@ -114,10 +129,82 @@ public class Parser {
         }
     }
     
+    private void analysis(){
+    	
+    	for(Node currCallsite : callSites._nodes.values()){
+    		//first we need to do preprocessing and determine all of the reachable nodes from every callsite with the given depth
+    		//then reachableNodes are the reachable nodes of a given node and is dependent on the depth
+    		//we will add all nodes along a path to the starting nodes (callsite's) reachable node map
+    		//then we will iterate through the values to update the currCallsites child nodes and update a nodes support if its new
+    		int depth = t_depth+2; //we add 2 because it starts from the root and we interpret depth 1 as being the child's child so this guarantees it starts at 1
+        	expand(currCallsite, currCallsite, depth);
+        	
+        	/*System.out.println("Reachable from: "+currCallsite.getName());
+        	HashMap<String, Node> children = currCallsite.reachableNodes;
+        	for(Node n: children.values()){
+        		System.out.println("  " + n.getName());
+        		
+        	}*/	
+    	}
+    	//preprocesing is done, now we need to iterate through all the callsite's children and add the nodes that are in the reachable lists for all the children to the current callsites children
+    	for(Node currCallsite: callSites._nodes.values()){
+    		HashMap<String, Node> children = currCallsite.childNodes;
+    		ArrayList<Node> addNode = new ArrayList<>();
+    		//expand children and their reachable maps
+    		for(Node child: children.values()){
+    			Node realChild = callSites._nodes.get(child.getName());
+    			for(Node reachableChild: realChild.reachableNodes.values()){
+    				//need to check if this reachable is in the currCalsites child, it so we need to add it
+    				if(!currCallsite.childNodes.containsKey(reachableChild.getName())){
+    					Node n = functionNodes.getNode(reachableChild.getName());
+    					addNode.add(n);
+    					
+    				}
+
+    			}
+    		}
+    		//to avoid modifying currCallsite while iterating through the children, we use the addNode array as the buffer
+    		//so we will add all of the nodes in addNode to child nodes of currCallsite
+    		for(int i=0; i<addNode.size(); i++){
+    			//check for duplicates again
+    			if(!currCallsite.childNodes.containsKey(addNode.get(i).getName())){
+    				Node n = addNode.get(i);
+    				n.increment();
+    				currCallsite.addChild(addNode.get(i));
+    			}
+    		}
+    	}	
+    }
+
+    private void expand(Node starting, Node curr, int depth){
+    	if(depth==0)
+    		return;
+    	
+    	if(starting.getName()!=curr.getName()){
+    		//System.out.println(starting.getName());
+    		//we only want to add if the function actually exists
+    		//if(functionNodes.getNode(starting.getName())!=null)
+    			//functionNodes.getNode(starting.getName()).addReachableNode(curr);
+    		starting.addReachableNode(curr); 
+    	}
+    	
+    	//need to retrieve node if it is actually a callsite and is expandable
+    	Node subCallsite = callSites.getNode(curr.getName());
+    	if(subCallsite!=null){
+    		HashMap<String, Node> children = subCallsite.childNodes;
+    		//expand on children
+	    	for(Node child: children.values()){
+	    		//check if a child is a callsite, if so we want to expand it (the recursion)
+	    		if(callSites.getNode(child.getName())!=null){
+	    			expand(starting, child, depth-1);
+	    		}
+	    	}
+    	}
+    	
+    }
+    
     private void computePairConfidence(){
     	//iterate through the children of each callsite and increment their pipair count
-        int a = 0;
-
     	for (Node curr : callSites._nodes.values()){
     		//need to iterate through all of currs children
     		HashMap<String, Node> children = curr.childNodes;

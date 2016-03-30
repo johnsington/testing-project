@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -7,16 +8,19 @@ import java.util.HashSet;
 public class Node {
     private String name;
     private int support;
+    private Boolean isCallsite;
     public HashMap<String, Node> childNodes;
+    public HashMap<String, Node> reachableNodes = new HashMap<String, Node>();
 
     public Node(String f){
         this.name = f;
         this.support = 0;
+        this.isCallsite=false;
     }
 
     public Node(String f, Boolean isCallSite){
         this(f);
-
+        this.isCallsite=isCallSite;
         if (isCallSite){
             this.childNodes = new HashMap<>();
         }
@@ -45,8 +49,18 @@ public class Node {
         return this.name;
     }
 
+    public boolean isCallsite(){
+    	return isCallsite;
+    }
+    
     public boolean equals(Node o){
           return o!=null && (this.getName().equals(o.getName()));
+    }
+    
+    public void addReachableNode(Node n){
+    	 if (!this.reachableNodes.containsValue(n)){
+             this.reachableNodes.put(n.getName(), n);
+         }
     }
 
 }
