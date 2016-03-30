@@ -7,13 +7,32 @@ then
 	file="cg"
 	opt -print-callgraph "$bitcode" 2>"$file" 1>/dev/null
 	#compile bitcode to graph file
-	
+	if [ $# -eq 4 ] 
+	then
+		support=$2
+    	conf=$3
+    	depth=$4
+		#java Main bitcode support conf
+		java -cp ../classes/ Main "$file" "$support" "$conf" "$depth" 2>/dev/null
+		rm $file
+		exit 0
+	fi
+
 	if [ $# -eq 3 ] 
 	then
 		support=$2
     	conf=$3
 		#java Main bitcode support conf
 		java -cp ../classes/ Main "$file" "$support" "$conf" 2>/dev/null
+		rm $file
+		exit 0
+	fi
+
+	if [ $# -eq 2 ] 
+	then
+		depth=$2
+		#java Main bitcode support conf
+		java -cp ../classes/ Main "$file" "$depth" 2>/dev/null
 		rm $file
 		exit 0
 	fi
