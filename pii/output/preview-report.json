@@ -1,0 +1,282 @@
+{
+  "header" : {
+    "format" : "commit preview report",
+    "version" : 2
+  },
+  "analysisInfo" : {
+    "ownerAssignmentRule" : "default_component_owner",
+    "comparisonSnapshotId" : null,
+    "reportTimestamp" : "2016-03-31T22:51:58.497Z",
+    "user" : "admin",
+    "command" : "/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir ."
+  },
+  "issueInfo" : [ {
+    "cid" : 10320,
+    "mergeKey" : "797bf9c5cd415919b1b06f941c9f77e2",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "NULL_RETURNS",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "Parser.readNewFunction(java.lang.String, java.io.BufferedReader)",
+      "extra" : "getNode",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 103,
+      "mainEventDescription" : "Accessing field of null object \"callSites.getNode(fName)\".",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "NULL_RETURNS",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "Parser.readNewFunction(java.lang.String, java.io.BufferedReader)",
+      "extra" : "getNode",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 107,
+      "mainEventDescription" : "Calling a method on null object \"n\".",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "NULL_RETURNS",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "Parser.readNewFunction(java.lang.String, java.io.BufferedReader)",
+      "extra" : "getNode",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 106,
+      "mainEventDescription" : "Dereferencing a pointer that might be null \"n\" when calling \"addChild\".",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "NULL_RETURNS",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "Parser.readNewFunction(java.lang.String, java.io.BufferedReader)",
+      "extra" : "getNode",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 106,
+      "mainEventDescription" : "Calling a method on null object \"callSites.getNode(fName)\".",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10321,
+    "mergeKey" : "d0d5026669dd37ca02c7e33e4e97d191",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "RESOURCE_LEAK",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "Parser.readFile()",
+      "extra" : "FileReader",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 57,
+      "mainEventDescription" : "Variable \"fstream\" going out of scope leaks the resource it refers to.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10322,
+    "mergeKey" : "5d9fe85e015fd5872ad120e1674ef915",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "FB.DM_DEFAULT_ENCODING",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "Parser.readFile()",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 39,
+      "mainEventDescription" : "Found reliance on default encoding: new java.io.FileReader(String).",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10323,
+    "mergeKey" : "8ce4c64a2109a015a7b76744fe42b527",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "FB.EQ_SELF_USE_OBJECT",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Node.java",
+      "function" : "Node.equals(Node)",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 48,
+      "mainEventDescription" : "Node defines equals(Node) method and uses Object.equals(Object).",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10324,
+    "mergeKey" : "78adabe1d5fa054635da2bbd16c95b88",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "FB.EQ_SELF_USE_OBJECT",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/PiPairs.java",
+      "function" : "PiPairs.equals(PiPairs)",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 59,
+      "mainEventDescription" : "PiPairs defines equals(PiPairs) method and uses Object.equals(Object).",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10325,
+    "mergeKey" : "17863969c579b12d705d78d2556f5d27",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "FB.HE_EQUALS_USE_HASHCODE",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Node.java",
+      "function" : "Node.equals(Node)",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 48,
+      "mainEventDescription" : "Node defines equals and uses Object.hashCode().",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10326,
+    "mergeKey" : "21dff14099f84246fa89fad7198fd4ec",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-31T22:51:58.497Z",
+    "occurrences" : [ {
+      "checker" : "FB.HE_EQUALS_USE_HASHCODE",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/PiPairs.java",
+      "function" : "PiPairs.equals(PiPairs)",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 59,
+      "mainEventDescription" : "PiPairs defines equals and uses Object.hashCode().",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10153,
+    "mergeKey" : "a70c32ebc87712acadd413bc526f48a9",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-23T02:04:21.873Z",
+    "occurrences" : [ {
+      "checker" : "FB.URF_UNREAD_FIELD",
+      "file" : "/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 20,
+      "mainEventDescription" : "Unread field: Parser.bugPairs.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  } ]
+}

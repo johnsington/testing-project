@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.0-dev-20140429-1103397" sequence="0" timestamp="1459464504000" analysisTimestamp="1459464506249" release="">
+  <Project projectName="coverityEmit">
+    <Jar>/home/jjsalave/se465/testing/project/testing-project/pi/partA/output/java-private/coverity_ac.jar</Jar>
+    <AuxClasspathEntry>/home/jjsalave/se465/testing/project/testing-project/pi/partA/output/java-private/coverity_cp_n_jars.jar</AuxClasspathEntry>
+  </Project>
+  <BugInstance type="EQ_SELF_USE_OBJECT" priority="2" abbrev="Eq" category="CORRECTNESS" instanceHash="1415c200cdf65faa6b3f797b2a048640" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="8">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[-[0]- defines equals(-[1]-) method and uses Object.equals(Object).]--[Node]--[Node]-]-</LongMessage>
+    <Class classname="Node" primary="true">
+      <SourceLine classname="Node" start="12" end="49" sourcefile="Node.java" sourcepath="Node.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[Node]-]-</Message>
+    </Class>
+    <Method classname="Node" name="equals" signature="(LNode;)Z" isStatic="false" primary="true">
+      <SourceLine classname="Node" start="49" end="49" startBytecode="0" endBytecode="86" sourcefile="Node.java" sourcepath="Node.java"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[Node.equals(Node)]-]-</Message>
+    </Method>
+    <SourceLine classname="Node" start="49" end="49" startBytecode="0" endBytecode="86" sourcefile="Node.java" sourcepath="Node.java" synthetic="true">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="2" abbrev="HE" category="BAD_PRACTICE" instanceHash="8916456b92e0ca2150d81996dea9b6d9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="16">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[-[0]- defines equals and uses Object.hashCode().]--[Node]-]-</LongMessage>
+    <Class classname="Node" primary="true">
+      <SourceLine classname="Node" start="12" end="49" sourcefile="Node.java" sourcepath="Node.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[Node]-]-</Message>
+    </Class>
+    <Method classname="Node" name="equals" signature="(LNode;)Z" isStatic="false" primary="true">
+      <SourceLine classname="Node" start="49" end="49" startBytecode="0" endBytecode="86" sourcefile="Node.java" sourcepath="Node.java" synthetic="true"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[Node.equals(Node)]-]-</Message>
+    </Method>
+    <SourceLine classname="Node" start="49" end="49" startBytecode="0" endBytecode="86" sourcefile="Node.java" sourcepath="Node.java" synthetic="true">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N" instanceHash="9306cdf816135e37bbc1ccf0241dce09" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="19">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Found reliance on default encoding: -[0]-.]--[new java.io.FileReader(String)]-]-</LongMessage>
+    <Class classname="Parser" primary="true">
+      <SourceLine classname="Parser" start="16" end="194" sourcefile="Parser.java" sourcepath="Parser.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[Parser]-]-</Message>
+    </Class>
+    <Method classname="Parser" name="readFile" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="Parser" start="39" end="79" startBytecode="0" endBytecode="395" sourcefile="Parser.java" sourcepath="Parser.java"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[Parser.readFile()]-]-</Message>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader" start="58" end="59" startBytecode="0" endBytecode="68" sourcefile="FileReader.java" sourcepath="java/io/FileReader.java"/>
+      <Message>-[CovLStr-[v1]--[Called method -[0]-]--[new java.io.FileReader(String)]-]-</Message>
+    </Method>
+    <SourceLine classname="Parser" primary="true" start="39" end="39" startBytecode="8" endBytecode="8" sourcefile="Parser.java" sourcepath="Parser.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" instanceHash="675c9b676e6e3d8da5c8d67efa66b49c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread field: -[0]-.]--[Parser.bugPairs]-]-</LongMessage>
+    <Class classname="Parser" primary="true">
+      <SourceLine classname="Parser" start="16" end="194" sourcefile="Parser.java" sourcepath="Parser.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[Parser]-]-</Message>
+    </Class>
+    <Field classname="Parser" name="bugPairs" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="Parser" sourcefile="Parser.java" sourcepath="Parser.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[Parser.bugPairs]-]-</Message>
+    </Field>
+    <SourceLine classname="Parser" primary="true" start="20" end="20" startBytecode="45" endBytecode="45" sourcefile="Parser.java" sourcepath="Parser.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EQ_SELF_USE_OBJECT" priority="2" abbrev="Eq" category="CORRECTNESS" instanceHash="e1ea3abb3e489a0c72eb10c08410edc2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="8">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[-[0]- defines equals(-[1]-) method and uses Object.equals(Object).]--[PiPairs]--[PiPairs]-]-</LongMessage>
+    <Class classname="PiPairs" primary="true">
+      <SourceLine classname="PiPairs" start="10" end="61" sourcefile="PiPairs.java" sourcepath="PiPairs.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[PiPairs]-]-</Message>
+    </Class>
+    <Method classname="PiPairs" name="equals" signature="(LPiPairs;)Z" isStatic="false" primary="true">
+      <SourceLine classname="PiPairs" start="61" end="61" startBytecode="0" endBytecode="100" sourcefile="PiPairs.java" sourcepath="PiPairs.java"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[PiPairs.equals(PiPairs)]-]-</Message>
+    </Method>
+    <SourceLine classname="PiPairs" start="61" end="61" startBytecode="0" endBytecode="100" sourcefile="PiPairs.java" sourcepath="PiPairs.java" synthetic="true">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="2" abbrev="HE" category="BAD_PRACTICE" instanceHash="c4435031a18d23db421f48a3edb71fac" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="16">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[-[0]- defines equals and uses Object.hashCode().]--[PiPairs]-]-</LongMessage>
+    <Class classname="PiPairs" primary="true">
+      <SourceLine classname="PiPairs" start="10" end="61" sourcefile="PiPairs.java" sourcepath="PiPairs.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[PiPairs]-]-</Message>
+    </Class>
+    <Method classname="PiPairs" name="equals" signature="(LPiPairs;)Z" isStatic="false" primary="true">
+      <SourceLine classname="PiPairs" start="61" end="61" startBytecode="0" endBytecode="100" sourcefile="PiPairs.java" sourcepath="PiPairs.java" synthetic="true"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[PiPairs.equals(PiPairs)]-]-</Message>
+    </Method>
+    <SourceLine classname="PiPairs" start="61" end="61" startBytecode="0" endBytecode="100" sourcefile="PiPairs.java" sourcepath="PiPairs.java" synthetic="true">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugPattern type="EQ_SELF_USE_OBJECT" abbrev="Eq" category="CORRECTNESS">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugPattern type="HE_EQUALS_USE_HASHCODE" abbrev="HE" category="BAD_PRACTICE">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="Eq">
+    <Description>Problems with implementation of equals()</Description>
+  </BugCode>
+  <BugCode abbrev="HE">
+    <Description>Equal objects must have equal hashcodes</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 31 Mar 2016 18:48:24 -0400" total_classes="6" referenced_classes="32" total_bugs="6" total_size="214" num_packages="1" java_version="1.8.0_45" vm_version="25.45-b02" cpu_seconds="4.72" clock_seconds="1.00" peak_mbytes="301.93" alloc_mbytes="981.50" gc_seconds="0.01" priority_2="5" priority_1="1">
+    <FileStats path="Main.java" bugCount="0" size="17"/>
+    <FileStats path="Node.java" bugCount="2" size="29" bugHash="5f1e6c713b9e485d23fce5786d937b05"/>
+    <FileStats path="NodeCollection.java" bugCount="0" size="16"/>
+    <FileStats path="Parser.java" bugCount="2" size="109" bugHash="660f470b8397ff8811815a94c762cada"/>
+    <FileStats path="PiPairs.java" bugCount="2" size="43" bugHash="fb70c44031e96966d902b6ec044332ee"/>
+    <PackageStats package="" total_bugs="6" total_types="6" total_size="214" priority_2="5" priority_1="1">
+      <ClassStats class="Main" sourceFile="Main.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="Main$1" sourceFile="Main.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="Node" sourceFile="Node.java" interface="false" size="29" bugs="2" priority_2="2"/>
+      <ClassStats class="NodeCollection" sourceFile="NodeCollection.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="Parser" sourceFile="Parser.java" interface="false" size="109" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="PiPairs" sourceFile="PiPairs.java" interface="false" size="43" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="164" invocations="436" avgMicrosecondsPerInvocation="376" maxMicrosecondsPerInvocation="10764" standardDeviationMircosecondsPerInvocation="814"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="50" invocations="403" avgMicrosecondsPerInvocation="124" maxMicrosecondsPerInvocation="13876" standardDeviationMircosecondsPerInvocation="707"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="49" invocations="32" avgMicrosecondsPerInvocation="1542" maxMicrosecondsPerInvocation="8687" standardDeviationMircosecondsPerInvocation="2212"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="41" invocations="31" avgMicrosecondsPerInvocation="1344" maxMicrosecondsPerInvocation="10497" standardDeviationMircosecondsPerInvocation="2662"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="39" invocations="134" avgMicrosecondsPerInvocation="298" maxMicrosecondsPerInvocation="2535" standardDeviationMircosecondsPerInvocation="359"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="28" invocations="30" avgMicrosecondsPerInvocation="948" maxMicrosecondsPerInvocation="6876" standardDeviationMircosecondsPerInvocation="1600"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="26" invocations="28" avgMicrosecondsPerInvocation="957" maxMicrosecondsPerInvocation="8714" standardDeviationMircosecondsPerInvocation="1717"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="25" invocations="28" avgMicrosecondsPerInvocation="909" maxMicrosecondsPerInvocation="20558" standardDeviationMircosecondsPerInvocation="3786"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="23" invocations="28" avgMicrosecondsPerInvocation="835" maxMicrosecondsPerInvocation="9776" standardDeviationMircosecondsPerInvocation="1817"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="21" invocations="38" avgMicrosecondsPerInvocation="576" maxMicrosecondsPerInvocation="10874" standardDeviationMircosecondsPerInvocation="1733"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="17" invocations="32" avgMicrosecondsPerInvocation="560" maxMicrosecondsPerInvocation="4635" standardDeviationMircosecondsPerInvocation="917"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="17" invocations="28" avgMicrosecondsPerInvocation="623" maxMicrosecondsPerInvocation="7018" standardDeviationMircosecondsPerInvocation="1291"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="16" invocations="32" avgMicrosecondsPerInvocation="507" maxMicrosecondsPerInvocation="4590" standardDeviationMircosecondsPerInvocation="1011"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="15" invocations="32" avgMicrosecondsPerInvocation="473" maxMicrosecondsPerInvocation="6333" standardDeviationMircosecondsPerInvocation="1130"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="14" invocations="28" avgMicrosecondsPerInvocation="530" maxMicrosecondsPerInvocation="4234" standardDeviationMircosecondsPerInvocation="782"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="13" invocations="32" avgMicrosecondsPerInvocation="427" maxMicrosecondsPerInvocation="2712" standardDeviationMircosecondsPerInvocation="619"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="11" invocations="32" avgMicrosecondsPerInvocation="365" maxMicrosecondsPerInvocation="4922" standardDeviationMircosecondsPerInvocation="1152"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,324 @@
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>NULL_RETURNS</checker>
+<template>null_returns_multievent_v1</template>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java</file>
+<function>Parser.readNewFunction(java.lang.String, java.io.BufferedReader)</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{line != null}}}}}}</description>
+<line>86</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_false</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking false branch}{{code{split.length != 6}}}}}}</description>
+<line>90</line>
+<path_event>
+<jump>true</jump>
+</path_event>
+</event>
+<event>
+<tag>if_end</tag>
+<description>{CovLStrv2{{t{End of if statement}}}}</description>
+<line>92</line>
+<path_event>
+<suppressible>true</suppressible>
+</path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{split[4].equals(&quot;function&quot;)}}}}}}</description>
+<line>95</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>returned_null</tag>
+<description>{CovLStrv2{{t{{0} returns null (checked {1} out of {2} times).}{{code{getNode}}}{0}{3}}}}</description>
+<line>103</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/NodeCollection.java</file>
+<function>NodeCollection.getNode(java.lang.String)</function>
+<key>bb2566beec630548a06360ffdefce0b4</key>
+<id>3</id>
+</model_ptr>
+</event>
+<event>
+<main>true</main>
+<tag>null_field_access</tag>
+<description>{CovLStrv2{{t{Accessing field of null object {0}.}{{code{callSites.getNode(fName)}}}}}}</description>
+<line>103</line>
+</event>
+<extra>getNode</extra>
+<subcategory>none</subcategory>
+<typePropertiesGroup>
+<category>Null pointer dereferences</category>
+<impact>Medium</impact>
+<type>Dereference null return value</type>
+<cwe>476</cwe>
+<localEffect>If the function actually returns a null value, a NullPointerException will be thrown.</localEffect>
+<longDescription>Return value of function which returns null is dereferenced without checking</longDescription>
+<qualityKind>true</qualityKind>
+<eventSetCaptions>
+<eventSetCaption>Call to null-returning function</eventSetCaption>
+<eventSetCaption>Examples where return value was checked for null</eventSetCaption>
+</eventSetCaptions>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>NULL_RETURNS</checker>
+<template>null_returns_multievent_v1</template>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java</file>
+<function>Parser.readNewFunction(java.lang.String, java.io.BufferedReader)</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{line != null}}}}}}</description>
+<line>86</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_false</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking false branch}{{code{split.length != 6}}}}}}</description>
+<line>90</line>
+<path_event>
+<jump>true</jump>
+</path_event>
+</event>
+<event>
+<tag>if_end</tag>
+<description>{CovLStrv2{{t{End of if statement}}}}</description>
+<line>92</line>
+<path_event>
+<suppressible>true</suppressible>
+</path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{split[4].equals(&quot;function&quot;)}}}}}}</description>
+<line>95</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{!callSites.getNode(fName).childNodes.containsKey(name)}}}}}}</description>
+<line>103</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>returned_null</tag>
+<description>{CovLStrv2{{t{{0} returns null (checked {1} out of {2} times).}{{code{getNode}}}{0}{3}}}}</description>
+<line>105</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/NodeCollection.java</file>
+<function>NodeCollection.getNode(java.lang.String)</function>
+<key>bb2566beec630548a06360ffdefce0b4</key>
+<id>3</id>
+</model_ptr>
+</event>
+<event>
+<tag>var_assigned</tag>
+<description>{CovLStrv2{{t{Assigning: {0} = null return value from {1}.}{{code{n}}}{{code{getNode}}}}}}</description>
+<line>105</line>
+</event>
+<event>
+<main>true</main>
+<tag>null_method_call</tag>
+<description>{CovLStrv2{{t{Calling a method on null object {0}.}{{code{n}}}}}}</description>
+<line>107</line>
+</event>
+<extra>getNode</extra>
+<subcategory>none</subcategory>
+<typePropertiesGroup>
+<category>Null pointer dereferences</category>
+<impact>Medium</impact>
+<type>Dereference null return value</type>
+<cwe>476</cwe>
+<localEffect>If the function actually returns a null value, a NullPointerException will be thrown.</localEffect>
+<longDescription>Return value of function which returns null is dereferenced without checking</longDescription>
+<qualityKind>true</qualityKind>
+<eventSetCaptions>
+<eventSetCaption>Call to null-returning function</eventSetCaption>
+<eventSetCaption>Examples where return value was checked for null</eventSetCaption>
+</eventSetCaptions>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>NULL_RETURNS</checker>
+<template>null_returns_multievent_v1</template>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java</file>
+<function>Parser.readNewFunction(java.lang.String, java.io.BufferedReader)</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{line != null}}}}}}</description>
+<line>86</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_false</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking false branch}{{code{split.length != 6}}}}}}</description>
+<line>90</line>
+<path_event>
+<jump>true</jump>
+</path_event>
+</event>
+<event>
+<tag>if_end</tag>
+<description>{CovLStrv2{{t{End of if statement}}}}</description>
+<line>92</line>
+<path_event>
+<suppressible>true</suppressible>
+</path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{split[4].equals(&quot;function&quot;)}}}}}}</description>
+<line>95</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{!callSites.getNode(fName).childNodes.containsKey(name)}}}}}}</description>
+<line>103</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>returned_null</tag>
+<description>{CovLStrv2{{t{{0} returns null (checked {1} out of {2} times).}{{code{getNode}}}{0}{3}}}}</description>
+<line>105</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/NodeCollection.java</file>
+<function>NodeCollection.getNode(java.lang.String)</function>
+<key>bb2566beec630548a06360ffdefce0b4</key>
+<id>3</id>
+</model_ptr>
+</event>
+<event>
+<tag>var_assigned</tag>
+<description>{CovLStrv2{{t{Assigning: {0} = null return value from {1}.}{{code{n}}}{{code{getNode}}}}}}</description>
+<line>105</line>
+</event>
+<event>
+<main>true</main>
+<tag>dereference</tag>
+<description>{CovLStrv2{{t{Dereferencing a pointer that might be null {0} when calling {1}.}{{code{n}}}{{code{addChild}}}}}}</description>
+<line>106</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Node.java</file>
+<function>Node.addChild(Node)</function>
+<key>c51754ef2ce7db08b6e125c4f68d8489</key>
+<id>2</id>
+</model_ptr>
+</event>
+<extra>getNode</extra>
+<subcategory>none</subcategory>
+<typePropertiesGroup>
+<category>Null pointer dereferences</category>
+<impact>Medium</impact>
+<type>Dereference null return value</type>
+<cwe>476</cwe>
+<localEffect>If the function actually returns a null value, a NullPointerException will be thrown.</localEffect>
+<longDescription>Return value of function which returns null is dereferenced without checking</longDescription>
+<qualityKind>true</qualityKind>
+<eventSetCaptions>
+<eventSetCaption>Call to null-returning function</eventSetCaption>
+<eventSetCaption>Examples where return value was checked for null</eventSetCaption>
+</eventSetCaptions>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>NULL_RETURNS</checker>
+<template>null_returns_multievent_v1</template>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java</file>
+<function>Parser.readNewFunction(java.lang.String, java.io.BufferedReader)</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{line != null}}}}}}</description>
+<line>86</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_false</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking false branch}{{code{split.length != 6}}}}}}</description>
+<line>90</line>
+<path_event>
+<jump>true</jump>
+</path_event>
+</event>
+<event>
+<tag>if_end</tag>
+<description>{CovLStrv2{{t{End of if statement}}}}</description>
+<line>92</line>
+<path_event>
+<suppressible>true</suppressible>
+</path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{split[4].equals(&quot;function&quot;)}}}}}}</description>
+<line>95</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{!callSites.getNode(fName).childNodes.containsKey(name)}}}}}}</description>
+<line>103</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>returned_null</tag>
+<description>{CovLStrv2{{t{{0} returns null (checked {1} out of {2} times).}{{code{getNode}}}{0}{3}}}}</description>
+<line>106</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/NodeCollection.java</file>
+<function>NodeCollection.getNode(java.lang.String)</function>
+<key>bb2566beec630548a06360ffdefce0b4</key>
+<id>3</id>
+</model_ptr>
+</event>
+<event>
+<main>true</main>
+<tag>null_method_call</tag>
+<description>{CovLStrv2{{t{Calling a method on null object {0}.}{{code{callSites.getNode(fName)}}}}}}</description>
+<line>106</line>
+</event>
+<extra>getNode</extra>
+<subcategory>none</subcategory>
+<typePropertiesGroup>
+<category>Null pointer dereferences</category>
+<impact>Medium</impact>
+<type>Dereference null return value</type>
+<cwe>476</cwe>
+<localEffect>If the function actually returns a null value, a NullPointerException will be thrown.</localEffect>
+<longDescription>Return value of function which returns null is dereferenced without checking</longDescription>
+<qualityKind>true</qualityKind>
+<eventSetCaptions>
+<eventSetCaption>Call to null-returning function</eventSetCaption>
+<eventSetCaption>Examples where return value was checked for null</eventSetCaption>
+</eventSetCaptions>
+</typePropertiesGroup>
+</error>

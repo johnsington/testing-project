@@ -1,0 +1,19 @@
+/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir . 
+
+FindBugs time: 00:00:02
+Analysis summary report:
+------------------------
+Files analyzed                 : 5
+Total LoC input to cov-analyze : 261
+Functions analyzed             : 32
+Paths analyzed                 : 343
+Time taken by analysis         : 00:00:22
+Defect occurrences found       : 5 Total
+                                 4 NULL_RETURNS
+                                 1 RESOURCE_LEAK
+FindBugs Checkers: 6 errors
+    FB.DM_DEFAULT_ENCODING           1
+     FB.EQ_SELF_USE_OBJECT           2
+ FB.HE_EQUALS_USE_HASHCODE           2
+       FB.URF_UNREAD_FIELD           1
+Additional defects, FindBugs   : 6

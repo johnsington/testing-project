@@ -1,0 +1,131 @@
+cmdline: command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir . 
+cmdline: parsed cmdline: [
+cmdline:   { name: "dir", args: [ "." ] },
+cmdline:   { name: "config", args: [ "/usr/local/cov-analysis-linux64-8.0.0/config/coverity_config.xml" ] },
+cmdline: ]
+startup: am_pid=10861
+startup: detected platform: Linux 2.6.18-409.el5 x86_64
+startup: target platform: linux64
+startup: Detected 8 logical cpus
+startup: Detected 4 cpu cores
+startup: host name: eceLinux2.uwaterloo.ca
+startup: user name: jjsalave
+startup: Analysis version: 8.0.0 (2c247ff7c4 p-jasper-push-24789.298)
+startup: temp directory: /tmp/cov-jjsalave/07f14f06056d4310e9181c2455e74af8
+startup: enable_constraint_fpp=0
+startup: current time: 2016-Mar-31 18:48:16
+startup: Detected amount of memory: 65880568kb
+startup: Limiting memory to 59292511kb
+startup: mem limit: current limit of 5644288000 is already less than or equal to desired value of 60715531264; skipping
+wlink: Skipping web-app linking, no archives
+emitdb: callgraph.cpp:2519 11111111
+emitdb: callgraph.cpp:2540 11000011
+emitdb: callgraph.cpp:2560 11000011
+rta: RTA discarded 177843 functions
+emitdb: callgraph.cpp:2570 11000000
+dyncg: N/A or no data
+directives: Optimizing dataflow configuration
+general: Starting analysis
+Using FindBugs 3.0.0-dev-20140429-1103397
+
+Scanning archives (2 / 2)
+2 analysis passes to perform
+Pass 1: Analyzing classes (32 / 32) - 100% complete
+Pass 2: Analyzing classes (6 / 6) - 100% complete
+Done with analysis
+dm-access-lib: AM listening for DM at 127.0.0.1:55992
+dm-access-lib: AM starting DM with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dm --AM-port 55992 --log-file /home/jjsalave/se465/testing/project/testing-project/pi/partA/output/distributor.log -j 8 --AW-timeout 36000 /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+dm-access-lib: DM started: dm_pid=10911
+dm-access-lib: AM got connection from DM: (local) 127.0.0.1:55992 - 127.0.0.1:50940 (remote)
+wurlegend: <phase><n> dw_id wup_bytes dw_ms wur_bytes aw_ms [mem] paths (rest are labeled)
+wur: stat2 4 6501 36 242 1 mem=8073216 max=52346880 8 nr=5 n: batch 2
+wur: stat4 3 7632 37 552 2 mem=8073216 max=52346880 15 nr=7 n: batch 4
+wur: stat3 2 17477 39 1092 5 mem=8089600 max=52363264 63 nr=7 n: batch 3
+wur: stat1 1 7708 51 320 1 mem=8073216 max=52346880 13 nr=9 n: batch 1
+wur: stat0 5 3709 48 88 0 mem=8065024 max=52338688 6 nr=4 n: batch 0
+wur: conc1 1 631 5 210 2 1 n: NodeCollection.<instance_field_initializations>()void in TU 4
+wur: conc20 3 670 5 202 1 1 n: Node.<instance_field_initializations>()void in TU 3
+wur: conc6 2 684 6 265 2 1 n: Node.getName()java.lang.String in TU 3
+wur: conc11 4 734 4 206 1 1 n: PiPairs.<instance_field_initializations>()void in TU 6
+wur: conc23 1 2113 5 418 4 2 n: NodeCollection.getNode(java.lang.String)Node in TU 4
+wur: conc7 5 874 10 440 3 3 n: PiPairs.getConfidence(Node)float in TU 6
+wur: conc2 2 1966 5 225 4 1 n: NodeCollection.<init>()void in TU 4
+wur: conc21 1 1275 5 347 4 1 n: Node.<init>(java.lang.String)void in TU 3
+wur: conc14 3 1791 4 504 4 4 n: Node.equals(Node)boolean in TU 3
+wur: conc18 1 2351 1 466 1 2 n: Node.addChild(Node)void in TU 3
+wur: conc16 2 1313 3 747 3 3 n: PiPairs.setBug(Node, float)void in TU 6
+wur: conc13 4 742 0 244 0 1 n: PiPairs.add()void in TU 6
+wur: conc22 2 2767 1 415 1 2 n: NodeCollection.add(java.lang.String)void in TU 4
+wur: conc25 4 2790 0 825 1 2 n: Node.<init>(java.lang.String, java.lang.Boolean)void in TU 3
+wur: conc15 3 1586 0 507 0 6 n: PiPairs.equals(PiPairs)boolean in TU 6
+wur: conc19 2 678 1 250 0 1 n: Node.increment()void in TU 3
+wur: conc0 3 898 0 52 0 1 n: Main$1.<init>()void in TU 2
+wur: conc3 1 1877 2 519 2 1 n: Parser.<instance_field_initializations>()void in TU 5
+wur: conc12 5 4518 2 1001 2 2 n: PiPairs.<init>(Node, Node)void in TU 6
+wur: conc26 1 3365 2 420 1 3 n: NodeCollection.addCallSite(java.lang.String)void in TU 4
+wur: conc29 3 707 2 52 2 1 n: Main.<init>()void in TU 2
+wur: conc30 4 1222 0 193 0 1 n: Main.main(java.lang.String[])void in TU 2
+wur: conc31 3 918 0 266 0 1 n: Node.toString()java.lang.String in TU 3
+wur: conc4 1 2048 2 489 2 1 n: Parser.<init>(java.lang.String)void in TU 5
+wur: conc5 1 1864 2 689 1 1 n: Parser.<init>(java.lang.String, int, double)void in TU 5
+wur: conc24 2 7522 6 621 5 31 n: Parser.readNewFunction(java.lang.String, java.io.BufferedReader)void in TU 5
+wur: conc10 7 674 51 270 1 mem=8060928 max=52334592 1 n: Node.getSupport()int in TU 3
+wur: conc8 6 744 54 269 1 mem=8060928 max=52334592 1 n: PiPairs.getSupport()int in TU 6
+wur: conc9 1 4519 2 588 1 3 n: Parser.reportBug(PiPairs, Node, Node)void in TU 5
+wur: conc17 1 11268 20 877 20 106 n: Parser.computePairConfidence()void in TU 5
+wur: conc27 1 6583 4 730 4 29 n: Parser.readFile()void in TU 5
+wur: conc28 1 4819 2 260 2 11 n: Main$1.run()void in TU 2
+wur: conctd2 3 379 2 67 1 1 n: Main.<init>()void in TU 2
+wur: conctd1 2 920 2 143 2 1 n: Main.main(java.lang.String[])void in TU 2
+wur: conctd0 4 505 2 13 2 1 n: Node.toString()java.lang.String in TU 3
+wur: conctd31 2 570 0 67 0 1 n: Main$1.<init>()void in TU 2
+wur: conctd3 1 4327 3 189 3 12 n: Main$1.run()void in TU 2
+wur: conctd26 1 1534 0 73 0 1 n: Parser.<init>(java.lang.String, int, double)void in TU 5
+wur: conctd27 1 1625 0 112 0 1 n: Parser.<init>(java.lang.String)void in TU 5
+wur: conctd4 2 5740 2 365 1 13 n: Parser.readFile()void in TU 5
+wur: conctd28 1 1473 1 95 1 1 n: Parser.<instance_field_initializations>()void in TU 5
+wur: conctd5 1 2809 0 179 0 5 n: NodeCollection.addCallSite(java.lang.String)void in TU 4
+wur: conctd6 3 1998 1 96 0 2 n: Node.<init>(java.lang.String, java.lang.Boolean)void in TU 3
+wur: conctd29 4 1363 0 139 1 1 n: NodeCollection.<init>()void in TU 4
+wur: conctd30 3 367 0 13 0 1 n: NodeCollection.<instance_field_initializations>()void in TU 4
+wur: conctd7 2 6657 2 376 2 20 n: Parser.readNewFunction(java.lang.String, java.io.BufferedReader)void in TU 5
+wur: conctd9 2 2333 1 172 1 2 n: NodeCollection.add(java.lang.String)void in TU 4
+wur: conctd12 4 414 0 52 0 1 n: Node.increment()void in TU 3
+wur: conctd13 3 1877 1 166 0 2 n: Node.addChild(Node)void in TU 3
+wur: conctd8 2 1709 1 136 1 2 n: NodeCollection.getNode(java.lang.String)Node in TU 4
+wur: conctd10 2 822 0 110 0 1 n: Node.<init>(java.lang.String)void in TU 3
+wur: conctd11 2 406 0 13 0 1 n: Node.<instance_field_initializations>()void in TU 3
+wur: conctd14 1 10018 14 553 14 67 n: Parser.computePairConfidence()void in TU 5
+wur: conctd16 1 1234 2 62 1 79 n: PiPairs.equals(PiPairs)boolean in TU 6
+wur: conctd19 2 2225 2 162 2 2 n: PiPairs.<init>(Node, Node)void in TU 6
+wur: conctd15 1 972 1 138 1 3 n: PiPairs.setBug(Node, float)void in TU 6
+wur: conctd17 2 1323 1 104 1 9 n: Node.equals(Node)boolean in TU 3
+wur: conctd21 1 410 0 52 0 1 n: Node.getSupport()int in TU 3
+wur: conctd22 3 3830 2 206 1 9 n: Parser.reportBug(PiPairs, Node, Node)void in TU 5
+wur: conctd18 1 478 0 55 0 1 n: PiPairs.add()void in TU 6
+wur: conctd20 2 470 0 13 0 1 n: PiPairs.<instance_field_initializations>()void in TU 6
+wur: conctd25 1 420 0 66 0 1 n: Node.getName()java.lang.String in TU 3
+wur: conctd24 2 610 1 98 1 3 n: PiPairs.getConfidence(Node)float in TU 6
+wur: conctd23 1 480 1 55 0 1 n: PiPairs.getSupport()int in TU 6
+wur: gen1 1 13175 19 24 15 19 nr=9 n: batch 1
+wur: gen2 1 11594 5 20 4 11 nr=5 n: batch 2
+wur: gen4 3 11691 8 25 5 90 nr=7 n: batch 4
+wur: gen0 4 8250 4 19 4 15 nr=4 n: batch 0
+wur: gen3 2 36795 40 1186 38 206 nr=7 n: batch 3
+summary: Analysis summary report:
+summary: ------------------------
+summary: Files analyzed                 : 5
+summary: Total LoC input to cov-analyze : 261
+summary: Functions analyzed             : 32
+summary: Paths analyzed                 : 343
+summary: Time taken by analysis         : 00:00:22
+summary: Defect occurrences found       : 5 Total
+summary:                                  4 NULL_RETURNS
+summary:                                  1 RESOURCE_LEAK
+summary: Number of functions: 32
+summary: out_of_memory count: 0
+summary: paths_exceeded count: 0
+summary: recoverable failures: 0
+mem: AM peak mem bytes: 272760832
+assert: suppressed asserts: workers=0, master=0
+failures: recoverable failures: workers=0, master=0

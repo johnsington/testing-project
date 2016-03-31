@@ -1,0 +1,182 @@
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.DM_DEFAULT_ENCODING</checker>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java</file>
+<function>Parser.readFile()</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Found reliance on default encoding: {0}.}{new java.io.FileReader(String)}}</description>
+<line>39</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>High</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Internationalization</category>
+<impact>Low</impact>
+<type>Dm: Dubious method used</type>
+<localEffect></localEffect>
+<longDescription>Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.DM_DEFAULT_ENCODING&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.EQ_SELF_USE_OBJECT</checker>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Node.java</file>
+<function>Node.equals(Node)</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{{0} defines equals({1}) method and uses Object.equals(Object).}{Node}{Node}}</description>
+<line>48</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Correctness</category>
+<impact>Medium</impact>
+<type>Eq: Problems with implementation of equals()</type>
+<cwe>595</cwe>
+<localEffect></localEffect>
+<longDescription>This class defines a covariant version of the &lt;code&gt;equals()&lt;/code&gt; method, but inherits the normal &lt;code&gt;equals(Object)&lt;/code&gt; method defined in the base &lt;code&gt;java.lang.Object&lt;/code&gt; class. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.EQ_SELF_USE_OBJECT&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.EQ_SELF_USE_OBJECT</checker>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/PiPairs.java</file>
+<function>PiPairs.equals(PiPairs)</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{{0} defines equals({1}) method and uses Object.equals(Object).}{PiPairs}{PiPairs}}</description>
+<line>59</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Correctness</category>
+<impact>Medium</impact>
+<type>Eq: Problems with implementation of equals()</type>
+<cwe>595</cwe>
+<localEffect></localEffect>
+<longDescription>This class defines a covariant version of the &lt;code&gt;equals()&lt;/code&gt; method, but inherits the normal &lt;code&gt;equals(Object)&lt;/code&gt; method defined in the base &lt;code&gt;java.lang.Object&lt;/code&gt; class. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.EQ_SELF_USE_OBJECT&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.HE_EQUALS_USE_HASHCODE</checker>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Node.java</file>
+<function>Node.equals(Node)</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{{0} defines equals and uses Object.hashCode().}{Node}}</description>
+<line>48</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Bad practice</category>
+<impact>Low</impact>
+<type>HE: Equal objects must have equal hashcodes</type>
+<localEffect></localEffect>
+<longDescription>This class overrides &lt;code&gt;equals(Object)&lt;/code&gt;, but does not override &lt;code&gt;hashCode()&lt;/code&gt;, and inherits the implementation of &lt;code&gt;hashCode()&lt;/code&gt; from &lt;code&gt;java.lang.Object&lt;/code&gt; (which returns the identity hash code, an arbitrary value assigned to the object by the VM). (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.HE_EQUALS_USE_HASHCODE&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.HE_EQUALS_USE_HASHCODE</checker>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/PiPairs.java</file>
+<function>PiPairs.equals(PiPairs)</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{{0} defines equals and uses Object.hashCode().}{PiPairs}}</description>
+<line>59</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Bad practice</category>
+<impact>Low</impact>
+<type>HE: Equal objects must have equal hashcodes</type>
+<localEffect></localEffect>
+<longDescription>This class overrides &lt;code&gt;equals(Object)&lt;/code&gt;, but does not override &lt;code&gt;hashCode()&lt;/code&gt;, and inherits the implementation of &lt;code&gt;hashCode()&lt;/code&gt; from &lt;code&gt;java.lang.Object&lt;/code&gt; (which returns the identity hash code, an arbitrary value assigned to the object by the VM). (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.HE_EQUALS_USE_HASHCODE&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.URF_UNREAD_FIELD</checker>
+<file>/home/jjsalave/se465/testing/project/testing-project/pi/partA/Parser.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread field: {0}.}{Parser.bugPairs}}</description>
+<line>20</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Performance</category>
+<impact>Low</impact>
+<type>UrF: Unread field</type>
+<localEffect></localEffect>
+<longDescription>This field is never read. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.URF_UNREAD_FIELD&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
